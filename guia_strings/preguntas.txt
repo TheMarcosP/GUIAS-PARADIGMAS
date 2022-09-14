@@ -1,0 +1,36 @@
+Describa qué es para usted una cadena.
+    una cadena es un arreglo de caracteres
+
+¿Qué diferencias y similitudes hay entre una cadena y un arreglo?
+    las cadenas son arreglos de caracteres, pero los arreglos no son cadenas
+
+¿De qué sirve el carácter '\0' en las cadenas?
+    sirve para indicar el final de la cadena
+
+¿Dónde empieza y dónde termina la cadena almacenada en el arreglo str si se lo inicializa con el siguiente arreglo?
+{'9', '5', '1', '1', '\n', '7', '5', '0', '2', '\0', 'R', 'u', 'L', 'Z', '\0', 'a', ' ', 'v', 'e', 'c', 'e', 's'}
+
+    empieza en el 9 termina en el \0
+
+¿qué imprimiría la función puts()? ¿Termina en '\0' la cadena?
+    imprime 9511\n7502
+
+Escriba 3 porciones de código que inicialicen de 3 maneras distintas la variable str con la cadena "Winter is coming". Comente las diferencias entre las 3 formas.
+    char str[15] = "Winter is coming";
+    char *str = "Winter is coming";
+    const char str[] = "Winter is coming";
+
+    la diferencia es que la primera forma es una cadena de caracteres, la segunda es un puntero a un arreglo de caracteres y la tercera es una cadena de caracteres constante
+
+Para cada inciso, explique las diferencias en las definiciones mostradas:
+
+
+char manzana[] = "manzana";
+char * naranja = "naranja";
+
+    la primera es un arreglo de caracteres y la segunda es un puntero a un arreglo de caracteres
+
+char * frutas[] = {"uva", "kiwi", "caqui", "higo", "pera", "frambuesa"};
+char frutas[][10] = {"uva", "kiwi", "caqui", "higo", "pera", "frambuesa"};
+
+    la primera es un arreglo de punteros a arreglos de caracteres y la segunda es un arreglo de arreglos de caracteres
