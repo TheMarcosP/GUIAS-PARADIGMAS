@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdbool.h>
-#include "ejemplofiles.c"
 
 
 //ej 2 Leer del teclado y almacenar 12 valores de punto flotante en el arreglo temp_mensuales.
@@ -116,6 +115,28 @@ void printArr(double a[], size_t size){
     printf("\n");
 }
 
+
+//inicializar matrix con la identidad
+void loadMatrix(double a[][10], size_t rows, size_t cols){
+
+    if (rows != cols){
+        printf("Error: rows and cols must be equal");
+        return;
+    }
+
+    for(int i = 0; i < ROWS; i++){
+        for(int j = 0; j < COLS; j++){
+            if(i == j){
+                a[i][j] = 1;
+            }else{
+                a[i][j] = 0;
+            }
+        }
+    }
+}
+
+
+
 const int ROWS = 2;
 const int COLS = 5;
 
@@ -138,11 +159,12 @@ int main(void)
 
     // arrays multidimensionales
 
-    double a[ROWS][COLS];
-    loadMatrix(a);
+    //double a[ROWS][COLS];
+    //loadMatrix(a, ROWS, COLS);
 
-    
+    double A[10][10];
+    loadMatrix(A, 10, 10);
+
 }
 
 // loadMatrix by reference
-
