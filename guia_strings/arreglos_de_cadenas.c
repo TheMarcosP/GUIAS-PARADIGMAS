@@ -4,6 +4,7 @@
 
 #include "arreglos_de_cadenas.h"
 /*
+ej2
 Defina un arreglo de cadenas que contenga 10 frutas. Defina un tipo enumerativo fruta_t que contenga las 10 frutas mencionadas en el arreglo, en el mismo orden. Luego implemente un programa o función que imprima un elemento del arreglo, dado por una variable del tipo fruta_t.
 */
 
@@ -17,34 +18,6 @@ void testPrintFruta(){
     printFruta(manzana);
 }
 
-/*
-De forma similar, defina el tipo enumerativo dia_t con los valores
-
-DIA_LUNES
-DIA_MARTES
-DIA_MIERCOLES
-DIA_JUEVES
-DIA_VIERNES
-DIA_SABADO
-DIA_DOMINGO
-Defina un arreglo de cadena con los 7 días de la semana, de manera similar al ejercicio anterior. Modularice el programa de forma tal que sea sencillo cambiar el idioma en el que se muestran los días, agregando únicamente archivos .h.
-*/
-
-
-void printDia(dia_t dia){
-
-    char dias[3][7][20] = {
-        [ESP] = {"lunes","martes","miercoles","jueves","viernes","sabado","domingo"},
-        [ENG] = {"monday","tuesday","wednesday","thursday","friday","saturday","sunday"},
-        [ITA] = {"lunedi","martedi","mercoledi","giovedi","venerdi","sabato","domenica"}
-    };
-
-    printf("%s",dias[idioma][dia]);
-}
-
-void testPrintDia(){
-    printDia(DIA_JUEVES);
-}
 
 
 /*
