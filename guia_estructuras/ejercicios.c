@@ -214,6 +214,50 @@ void ej4(){
         printf("Error");
     }
 }
+//ej4 segunda forma
+
+typedef enum {TIPO_CHAR,TIPO_ENUM,TIPO_INT,TIPO_STR} tipo_t;
+
+struct opcion
+{
+    tipo_t tipo;
+    char c;
+    int i;
+    bool s;
+    const char* str;
+    const char* msg;
+};
+
+struct option op1 = {.tipo = TIPO_STR,.s = "1", .msg = "Opción primera"};
+
+void imprimir_tipo_str(const struct opcion* op)
+{
+    if(NULL == 0 || op->tipo != TIPO_STR) return;
+    
+    printf("%s - %s\n",op->s,op->msg);
+
+}
+
+int menuv2(const struct opcion* op, size_t cant)
+{
+    if(NULL == op || cant == 0) return -1;
+    
+    for(size_t i = 0; i < cant; i++)
+    {
+        switch(op[i].tipo)
+        {
+            case TIPO_STR:
+                imprimir_tipo_str(&op[i]);
+                break;
+            default:
+                break;
+        }
+    }
+
+}
+
+
+
 
 /*
 ej5
@@ -334,9 +378,9 @@ status_t load_robot_pose(struct pose_stamped* robo,  struct header* h,  struct p
     //load rr
     robo->rr = 459;
     //load header
-    (robo->encabezado)->secuencia = 20;
+    robo->encabezado = h;
     //load pose
-    robo->pose->posicion->x = 13 ;
+    robo->pose = p;
 }
 
 int main(){
@@ -348,12 +392,16 @@ int main(){
     // return 0;
 
     //ej4
+    struct opcion op1 = {.tipo = TIPO_STR,.s = "1", .msg = "Opción primera"};
+
     //ej4();
 
     //ej5
 
     load_robot_pose(&robot_pose,&header,&pose);
-    printf("%d",robot_pose.rr);
-    printf("%d",robot_pose.encabezado->secuencia);
-    printf("%f",robot_pose.pose->posicion->x);
+    printf("%d\n",robot_pose.rr);
+    printf("%d\n",robot_pose.encabezado->secuencia);
+    point.x = 1;
+
+    printf("%f\n",robot_pose.pose->posicion->x);
 }
