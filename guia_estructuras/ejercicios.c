@@ -297,7 +297,7 @@ struct header {
     char * frame;
 } header;
 
-struct punto {
+struct puntov {
     double x, y, z;
 } point;
 
@@ -306,16 +306,16 @@ struct cuaternion {
 } quaternion;
 
 struct pose {
-    struct punto * posicion;
+    struct puntov * posicion;
     struct cuaternion * orientacion;
 } pose;
+
 
 struct pose_stamped {
     int rr;
     struct header * encabezado;
     struct pose * pose;
 } robot_pose, * robot_pose_ptr;
-
 /*
 Escribir una porción de código para cargar la estructura robot_pose usando las demás estructuras. 
 Luego, para acceder a cada uno de los campos de las estructuras, escribir una expresión. 
@@ -326,17 +326,17 @@ robot_pose.encabezado->stamp;
 *((*robot_pose_ptr).encabezado).stamp;
 */
 
-status_t load_robot_pose(struct pose_stamped* robo, const struct header* h, const struct pose* p){
+status_t load_robot_pose(struct pose_stamped* robo,  struct header* h,  struct pose* p){
     if(robo == NULL){
         return ST_NOT_OK;
     }
 
     //load rr
-    robo->rr = 1;
+    robo->rr = 459;
     //load header
-    robo->encabezado = h;
+    (robo->encabezado)->secuencia = 20;
     //load pose
-    robo->pose = p;
+    robo->pose->posicion->x = 13 ;
 }
 
 int main(){
@@ -351,5 +351,9 @@ int main(){
     //ej4();
 
     //ej5
+
     load_robot_pose(&robot_pose,&header,&pose);
+    printf("%d",robot_pose.rr);
+    printf("%d",robot_pose.encabezado->secuencia);
+    printf("%f",robot_pose.pose->posicion->x);
 }
