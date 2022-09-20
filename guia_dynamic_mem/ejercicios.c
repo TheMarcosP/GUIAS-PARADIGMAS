@@ -126,7 +126,48 @@ void ej4_test(){
     ej4(str);
 }
 
+
+/*
+Implementar una función que reciba una cadena de caracteres, un carácter y una longitud. La misma retorna una copia dinámica de la cadena original, centrada en la longitud especificada y rellenando con el carácter pedido.
+                          _________
+                         |         |
+(" cadena ", '*', 12) -->| centrar |--> "** cadena **"
+                         |_________|
+
+*/
+
+char* ej5(const char* str, const char c, const int len){
+    int i;
+    int j;
+    int k;
+    int str_len;
+    str_len = strlen(str);
+    char* newstr = malloc(len+1);
+    for(i=0;i<len;i++){
+        newstr[i] = c;
+    }
+    newstr[i] = '\0';
+    for(j = (len-str_len)/2,k=0;j<(len+str_len)/2;j++,k++){
+        newstr[j] = str[k];
+    }
+    return newstr;
+}
+
+void ej5_test(){
+    char * str = "cadena";
+    char c = '*';
+    int len = 12;
+    char * newstr = ej5(str,c,len);
+    printf("%s",newstr);
+}
+
+
+
+
+
 int main(){
-    ej4_test();
-    return 0;
+    //ej4_test();
+    //ej5_test();
+
+
 }
