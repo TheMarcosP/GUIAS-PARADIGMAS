@@ -161,13 +161,101 @@ void ej5_test(){
     printf("%s",newstr);
 }
 
+//ej9
+//Implementar una función que reciba un vector de cadenas, su longitud y una cadena delimitadora y retorne una cadena uniendo todas las cadenas del vector, agregando la delimitadora entre ellas.
+char * ej9(char ** arr, int len, char * delim) {
+    int delim_len = strlen(delim);
+    int total_len = 0;
+    for (int i = 0; i < len; i++) {
+        total_len += strlen(arr[i]);
+    }
+    total_len += delim_len * (len - 1);
+    char * newstr = malloc(total_len + 1);
+    if (newstr == NULL) {
+        return NULL;
+    }
+
+    int pos = 0;
+    for (int i = 0; i < len; i++) {
+        strcpy(newstr + pos, arr[i]);
+        pos += strlen(arr[i]);
+        if (i != len - 1) {
+            strcpy(newstr + pos, delim);
+            pos += delim_len;
+        }
+    }
+    newstr[total_len] = '\0';
+    return newstr;
+}
+
+void ej9_test() {
+    char * arr[] = {"hola", "como", "estas"};
+    int len = 3;
+    char * delim = "?";
+    char * newstr = ej9(arr, len, delim);
+    printf("%s", newstr);
+}
 
 
+/*
+Funciones con vectores y matrices
+Implementar una función que reciba el inicio de un intervalo, el final y la cantidad de puntos y retorne un arreglo de números linealmente espaciados entre el inicio y el final.
+
+
+*/
+double * linspace(double inicio, double fin, size_t nelems){
+    double *arr = malloc(nelems * sizeof(double));
+    double step = (fin - inicio) / (nelems - 1);
+    for (int i = 0; i < nelems; i++) {
+        arr[i] = inicio + step * i;
+    }
+    return arr;
+}
+
+
+
+bool linspace2(double inicio, double fin, size_t nelemes, double **valores){
+    double *arr = malloc(nelemes * sizeof(double));
+    double step = (fin - inicio) / (nelemes - 1);
+    for (int i = 0; i < nelemes; i++) {
+        arr[i] = inicio + step * i;
+    }
+    *valores = arr;
+    return true;
+}
+
+
+//Implementar una función que retorne una matriz dinámica, de un tamaño pasado como argumento:
+// ceros,
+
+double ** zeros(size_t n, size_t m){
+    double **mat = malloc(n * sizeof(double *));
+    for (int i = 0; i < n; i++) {
+        mat[i] = malloc(m * sizeof(double));
+        for (int j = 0; j < m; j++) {
+            mat[i][j] = 0;
+        }
+    }
+    return mat;
+}
+
+// por interfaz 
+bool zeros2(size_t n, size_t m, double ***mat){
+    double **mat2 = malloc(n * sizeof(double *));
+    for (int i = 0; i < n; i++) {
+        mat2[i] = malloc(m * sizeof(double));
+        for (int j = 0; j < m; j++) {
+            mat2[i][j] = 0;
+        }
+    }
+    *mat = mat2;
+    return true;
+}
 
 
 int main(){
     //ej4_test();
     //ej5_test();
-
+    ej9_test();
 
 }
