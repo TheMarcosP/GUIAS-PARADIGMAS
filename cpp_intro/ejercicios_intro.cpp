@@ -129,6 +129,68 @@ void contador(){
 }
 
 
+
+double celsiusToFahrenheit(double celsius) {
+    return celsius * 9 / 5 + 32;
+}
+
+double fahrenheitToCelsius(double fahrenheit) {
+    return (fahrenheit - 32) * 5 / 9;
+}
+
+void ej11(){
+    double celsius = 0.0;
+    double fahrenheit = 0.0;
+    std::cout << "Ingrese grados Celsius: ";
+    std::cin >> celsius;
+    std::cout << celsius << " grados Celsius son " << celsiusToFahrenheit(celsius) << " grados Fahrenheit" << std::endl;
+    std::cout << "Ingrese grados Fahrenheit: ";
+    std::cin >> fahrenheit;
+    std::cout << fahrenheit << " grados Fahrenheit son " << fahrenheitToCelsius(fahrenheit) << " grados Celsius" << std::endl;
+    return;
+}
+
+
+//ej13
+//Escribir un programa que acepte grados Celsius y Fahrenheit, y produzca la conversión correspondiente. 
+//Por ejemplo, una entrada 0C devuelve 32F, mientras una entrada 212F devuelve 100C. Asuma una opción por defecto cuando no se especifica la unidad de entrada.
+void ej13(){
+    double celsius = 0.0;
+    double fahrenheit = 0.0;
+    char unidad;
+    std::cout << "Ingrese grados Celsius o Fahrenheit: ";
+    std::cin >> celsius >> unidad;
+    if (unidad == 'C' || unidad == 'c') {
+        std::cout << celsius << " grados Celsius son " << celsiusToFahrenheit(celsius) << " grados Fahrenheit" << std::endl;
+    }
+    else if (unidad == 'F' || unidad == 'f') {
+        std::cout << fahrenheit << " grados Fahrenheit son " << fahrenheitToCelsius(fahrenheit) << " grados Celsius" << std::endl;
+    }
+    else {
+        std::cout << "Unidad no reconocida" << std::endl;
+    }
+}
+
+
+//ej15
+// Agregue el código necesario para determinar el valor medio, máximo y mínimo de los valores generados.
+int ej15()
+{
+    int how_many = 100;
+
+    std::cout << "Print "
+              << how_many
+              << " random integers."
+              << std::endl;
+
+    for (int i = 0; i < how_many; ++i) {
+        std::cout << std::rand() << '\t';
+        
+    }
+    std::cout << std::endl;
+}
+
+
 int main(){
     //ej1
     // printnormal("She sells sea shells by the seashore.");
@@ -142,6 +204,9 @@ int main(){
     //corregido();
     
     //ej4
-    contador();
+    //contador();
+
+    //ej13
+    ej15();
 
 }
