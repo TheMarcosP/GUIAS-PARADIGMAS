@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <cmath>
 
 int gcd(int m, int n){
     int r; 
