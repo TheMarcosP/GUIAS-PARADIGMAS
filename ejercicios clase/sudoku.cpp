@@ -2,7 +2,7 @@
 // enviar mensajes a objetos , preguntas, en forma de metodos
 
 // los objetos se usan para ocultar la implementacion
-
+// en el constructor del objeto deben ir como parametros datos que no van a cambiar
 
 // posibles objetos
 // usuario
