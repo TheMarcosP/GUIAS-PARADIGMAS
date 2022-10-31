@@ -137,3 +137,7 @@ int main(){
     delete a;
     return 0;
 }
+
+// metodos solo si son necesarias
+// variables aux innecesarias
+// esconder la implementacion
