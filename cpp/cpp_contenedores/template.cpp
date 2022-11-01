@@ -1,0 +1,14 @@
+#include <vector>
+#include <cassert>
+#include <iostream>
+#include <cstdbool>
+
+
+
+
+int main(){
+
+
+    std::cout << "all test passed" << std::endl;
+}
+
