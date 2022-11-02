@@ -13,9 +13,9 @@
 
 
 class Vector{
-    public:
         const int x_;
         const int y_;
+    public:
         Vector(int x, int y): x_(x), y_(y) {std::cout << "Vector created" << std::endl;};
         ~Vector() {std::cout << "Vector destroyed" << std::endl;};
         int getX(){return x_;};
